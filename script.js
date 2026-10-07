@@ -74,6 +74,18 @@ function heatForge(amount) {
   updateForge();
 }
 
+// 7. write makeSword(). Handle both success and insufficient heat.
+function makeSword() {
+  if (forgeHeat >= 30) {
+    forgeHeat -= 30;
+    swordsMade += 1;
+    actionMessageElement.textContent = "Clang! You successfully forged a new sword.";
+  } else {
+    actionMessageElement.textContent = "The forge is too cold to strike steel. Add more heat first.";
+  }
+  updateForge();
+}
+
 // 8. call resetForge() once to start the game.
 resetForge();
 
