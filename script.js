@@ -86,6 +86,6 @@ function makeSword() {
   updateForge();
 }
 
-// 8. call resetForge() once to start the game.
+// 8. call resetForge() once to start the game
 resetForge();
 
