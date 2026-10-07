@@ -55,3 +55,14 @@ function updateForge() {
     forgeImageElement.alt = "A stone forge with tall bright flames and sparks";
   }
 }
+
+// 5. writing resetForge(). Restore the state, message, and display.
+function resetForge() {
+  forgeHeat = 20;
+  swordsMade = 0;
+  actionMessageElement.textContent = "Welcome to the forge. Add heat to begin.";
+  updateForge();
+}
+
+// 8. call resetForge() once to start the game.
+resetForge();
