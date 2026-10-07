@@ -17,3 +17,41 @@ const actionMessageElement = document.getElementById("action-message");
 // 2. creating the two state variables: heat and swords made.
 let forgeHeat = 20;
 let swordsMade = 0;
+
+// 3. writes getForgeStatus(heatValue). Return the correct status string.
+function getForgeStatus(heatValue) {
+  if (heatValue < 30) {
+    return "Too cold";
+  } else if (heatValue < 70) {
+    return "Ready to forge";
+  } else {
+    return "Roaring fire";
+  }
+}
+
+// 4. write updateForge(). update text and apply one status class.
+//    Change the supplied forge image src and alt to match the heat.
+//    Keep the most recent action message visible.
+function updateForge() {
+  heatValueElement.textContent = forgeHeat;
+  swordCountElement.textContent = swordsMade;
+
+  const status = getForgeStatus(forgeHeat);
+  forgeStatusElement.textContent = status;
+
+  forgeElement.classList.remove("is-cold", "is-ready", "is-roaring");
+
+  if (status === "Too cold") {
+    forgeElement.classList.add("is-cold");
+    forgeImageElement.src = "assets/forge-cold.svg";
+    forgeImageElement.alt = "A stone forge with dark coals and no flames";
+  } else if (status === "Ready to forge") {
+    forgeElement.classList.add("is-ready");
+    forgeImageElement.src = "assets/forge-ready.svg";
+    forgeImageElement.alt = "A stone forge with a small orange fire";
+  } else if (status === "Roaring fire") {
+    forgeElement.classList.add("is-roaring");
+    forgeImageElement.src = "assets/forge-roaring.svg";
+    forgeImageElement.alt = "A stone forge with tall bright flames and sparks";
+  }
+}
