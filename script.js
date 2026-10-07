@@ -64,5 +64,16 @@ function resetForge() {
   updateForge();
 }
 
+// 6. write heatForge(amount). add heat, cap it, and update the page.
+function heatForge(amount) {
+  forgeHeat += amount;
+  if (forgeHeat > 100) {
+    forgeHeat = 100;
+  }
+  actionMessageElement.textContent = `Heating complete. The forge is at ${forgeHeat} heat.`;
+  updateForge();
+}
+
 // 8. call resetForge() once to start the game.
 resetForge();
+
